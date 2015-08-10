@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data.Common;
+using AdoGemeenschap;
 
 namespace AdoWpf
 {
@@ -23,6 +27,21 @@ namespace AdoWpf
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void buttonBieren_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var manager = new RekeningenManager();
+                labelStatus.Content = manager.SaldoBonus() + " rekeningen aangepast";
+               
+            }
+            catch (Exception ex)
+            {
+
+                labelStatus.Content = ex.Message;
+            }
         }
     }
 }

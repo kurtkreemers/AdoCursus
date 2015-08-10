@@ -3,6 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Button x:Name="buttonBonus" Content="Bonus op alle rekeningen" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Width="150" Margin="214,59,0,0" Click="buttonBieren_Click"/>
+        <Label x:Name="labelStatus" Content="" HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="230,154,0,0"/>
         
     </Grid>
 </Window>
