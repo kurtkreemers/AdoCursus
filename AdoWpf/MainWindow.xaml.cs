@@ -29,19 +29,33 @@ namespace AdoWpf
             InitializeComponent();
         }
 
-        private void buttonBieren_Click(object sender, RoutedEventArgs e)
+        private void buttonStorten_Click(object sender, RoutedEventArgs e)
         {
-            try
+            Decimal teStorten;
+            if(decimal.TryParse(textBoxTeStorten.Text,out teStorten))
             {
-                var manager = new RekeningenManager();
-                labelStatus.Content = manager.SaldoBonus() + " rekeningen aangepast";
-               
+                try
+                {
+                    var manager = new RekeningenManager();
+                    if (manager.Storten(teStorten, textBoxRekengNr.Text))
+                    {
+                        labelStatus.Content = "OK";
+                    }
+                    else
+                    {
+                        labelStatus.Content = "Rekening niet gevonden";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                    labelStatus.Content = ex.Message;
+                }
             }
-            catch (Exception ex)
-            {
-
-                labelStatus.Content = ex.Message;
-            }
+            else
+                labelStatus.Content = "Tik een getal bij het storten";
         }
+
+      
     }
 }
