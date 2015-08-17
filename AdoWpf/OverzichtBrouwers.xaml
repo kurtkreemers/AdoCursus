@@ -1,0 +1,37 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:AdoGemeenschap="clr-namespace:AdoGemeenschap;assembly=AdoGemeenschap" 
+    mc:Ignorable="d" 
+    x:Class="AdoWpf.OverzichtBrouwers"
+    Title="OverzichtBrouwers2" SizeToContent="Width" Height="300" Width="500" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="brouwerViewSource" d:DesignSource="{d:DesignInstance {x:Type AdoGemeenschap:Brouwer}, CreateList=True}"/>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+        <Border Height="30" Background="SkyBlue" BorderBrush="Black" BorderThickness="1" DockPanel.Dock="Top">
+            <StackPanel HorizontalAlignment="Center" Margin="0" Width="410" Orientation="Horizontal">
+                <Button Content="|&lt;&lt;" Name="goToFirstButton" Width="Auto" FontWeight="Bold" Background="BlanchedAlmond" Click="goToFirstButton_Click"></Button>
+                <Button Content="&lt;" Name="goToPreviousButton" Width="Auto" FontWeight="Bold" Background="BlanchedAlmond" Click="goToPreviousButton_Click"></Button>
+                <Button Content="&gt;" Name="goToNextButton" Width="Auto" FontWeight="Bold" Background="BlanchedAlmond" Click="goToNextButton_Click"></Button>
+                <Button Content="&gt;&gt;|" Name="goToLastButton" Width="Auto" FontWeight="Bold" Background="BlanchedAlmond" Click="goToLastButton_Click"></Button>
+                <TextBox HorizontalAlignment="Left" Name="textBoxZoeken" Width="120" AcceptsReturn="False" KeyUp="textBoxZoeken_KeyUp" />
+                <Button Content="Zoeken" HorizontalAlignment="Left" Name="buttonZoeken" Width="Auto" Background="BlanchedAlmond" FontWeight="Bold" Height="28" VerticalAlignment="Top" Click="buttonZoeken_Click" />
+            </StackPanel>
+        </Border>
+        <Border DataContext="{StaticResource brouwerViewSource}" Background="SkyBlue" BorderBrush="Black" BorderThickness="1">
+            <DataGrid x:Name="brouwerDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="0,69,113,0" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="brouwerNrColumn" Header="Brouwernr" IsReadOnly="True" Binding="{Binding BrouwerNr}"/>
+                    <DataGridTextColumn x:Name="brNaamColumn" Width="SizeToHeader" Header="Br Naam" Binding="{Binding BrNaam}"/>
+                    <DataGridTextColumn x:Name="adresColumn" Width="SizeToHeader" Header="Adres" Binding="{Binding Adres}"/>
+                    <DataGridTextColumn x:Name="postcodeColumn" Width="SizeToHeader" Header="Postcode" Binding="{Binding Postcode}"/>
+                    <DataGridTextColumn x:Name="gemeenteColumn" Width="SizeToHeader" Header="Gemeente" Binding="{Binding Gemeente}"/>
+                    <DataGridTextColumn x:Name="omzetColumn" Width="SizeToHeader" Header="Omzet" Binding="{Binding Omzet}"/>                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </DockPanel>
+</Window>
