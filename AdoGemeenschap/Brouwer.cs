@@ -31,13 +31,8 @@ namespace AdoGemeenschap
         public Int16 Postcode
         {
             get { return postcodeValue; }
-            set
-            {
-                if (value < 1000 || value > 9999)
-                { throw new Exception("Postcode moet tussen 1000 en 9999 liggen"); }
-                else
-                { postcodeValue = value; }
-            }
+            set { postcodeValue = value; }
+            
         }
         public String Gemeente
         {
