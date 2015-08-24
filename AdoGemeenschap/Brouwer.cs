@@ -14,30 +14,52 @@ namespace AdoGemeenschap
         private Int16 postcodeValue;
         private String gemeenteValue;
         private Int32? omzetValue;
+        public bool Changed { get; set; }
 
+
+        public Brouwer()
+        {
+
+        }
         public Int32 BrouwerNr
         { get { return brouwersNrValue; } }
 
         public String BrNaam
         {
             get { return brNaamValue; }
-            set { brNaamValue = value; }
+            set 
+            {
+                brNaamValue = value;
+                Changed = true;
+            }
         }
         public String Adres
         {
             get { return adresValue; }
-            set { adresValue = value; }
+            set 
+            { 
+                adresValue = value;
+                Changed = true;
+            }
         }
         public Int16 Postcode
         {
             get { return postcodeValue; }
-            set { postcodeValue = value; }
+            set 
+            { 
+                postcodeValue = value;
+                Changed = true;
+            }
             
         }
         public String Gemeente
         {
             get { return gemeenteValue; }
-            set { gemeenteValue = value; }
+            set 
+            { 
+                gemeenteValue = value;
+                Changed = true;
+            }
         }
         public Int32? Omzet
         {
@@ -46,7 +68,11 @@ namespace AdoGemeenschap
             {
                 if (value.HasValue && Convert.ToInt32(value) < 0)
                 { throw new Exception("Omzet moet positief zijn"); }
-                else { omzetValue = value; }
+                else 
+                {
+                    omzetValue = value;
+                    Changed = true;
+                }
             }
         }
 
@@ -58,6 +84,7 @@ namespace AdoGemeenschap
             this.Postcode = postcode;
             this.Gemeente = gemeente;
             this.Omzet = omzet;
+            Changed = false;
         }
     }
 }
