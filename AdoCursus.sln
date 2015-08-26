@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoWpf", "AdoWpf\AdoWpf.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoGemeenschap", "AdoGemeenschap\AdoGemeenschap.csproj", "{FD7ECFE6-0248-4C26-8E5F-718F9F50940A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoWpf2", "AdoWpf2\AdoWpf2.csproj", "{88492961-B9A6-4002-AA85-B19C9E25C269}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FD7ECFE6-0248-4C26-8E5F-718F9F50940A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD7ECFE6-0248-4C26-8E5F-718F9F50940A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD7ECFE6-0248-4C26-8E5F-718F9F50940A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88492961-B9A6-4002-AA85-B19C9E25C269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88492961-B9A6-4002-AA85-B19C9E25C269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88492961-B9A6-4002-AA85-B19C9E25C269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88492961-B9A6-4002-AA85-B19C9E25C269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
